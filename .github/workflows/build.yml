@@ -24,15 +24,15 @@ jobs:
 
         - name: Build
           run: |
-            gpg --import _site/public.gpg
+            gpg2 --import _site/public.gpg
             echo -e "${{ secrets.GPG_SIGNING_KEY }}" | gpg --import --no-tty --batch --yes
 
             mkdir incoming
             reprepro -V processincoming default
             reprepro -V export
 
-            mv dists deploy
-            mv pool deploy
+            mv dists _site
+            mv pool _site
 
             python3 scripts/create-static-directory-listing.py _site --indexPage README.md
 
