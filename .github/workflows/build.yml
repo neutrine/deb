@@ -1,0 +1,51 @@
+name: build and deploy
+
+on:
+  push:
+    branches: ["master"]
+  workflow_dispatch:
+
+jobs:
+  build:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v3
+          with:
+              lfs: true
+        - name: Setup Pages
+          id: pages
+          uses: actions/configure-pages@v2
+
+        - name: Install dependencies
+          run: |
+              sudo apt-get install -y reprepro python3 python3-pip
+              pip3 install mako
+
+        - name: Build
+          run: |
+            gpg --import _site/public.gpg
+            echo -e "${{ secrets.GPG_SIGNING_KEY }}" | gpg --import --no-tty --batch --yes
+
+            mkdir incoming
+            reprepro -V processincoming default
+            reprepro -V export
+
+            mv dists deploy
+            mv pool deploy
+
+            python3 scripts/create-static-directory-listing.py _site --indexPage README.md
+
+            - name: Upload artifact
+            # Automatically uploads an artifact from the './_site' directory by default
+            uses: actions/upload-pages-artifact@v1
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
