@@ -32,7 +32,7 @@ jobs:
             reprepro -V export
 
             mv dists _site
-            mv pool _site
+            #mv pool _site
 
             python3 scripts/create-static-directory-listing.py _site --indexPage README.md
 
