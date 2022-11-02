@@ -1,0 +1,6 @@
+Name: default
+IncomingDir: incoming
+TempDir: tmp
+Allow: sid bulleseye buster stretch jessie
+
+Cleanup:	

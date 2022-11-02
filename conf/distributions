@@ -1,0 +1,39 @@
+Origin: deb.neutrine.com
+Label: deb.neutrine.com
+Codename: sid
+Architectures: amd64 source arm64 armhf
+Components: main
+Description: Apt repository for Neutrine
+SignWith: 7E9358BD30862E2C024B1303AF844DC0005E5D76
+
+Origin: deb.neutrine.com
+Label: deb.neutrine.com
+Codename: bulleseye
+Architectures: amd64 source arm64 armhf
+Components: main
+Description: Apt repository for Neutrine
+SignWith: 7E9358BD30862E2C024B1303AF844DC0005E5D76
+
+Origin: deb.neutrine.com
+Label: deb.neutrine.com
+Codename: buster
+Architectures: amd64 source arm64 armhf
+Components: main
+Description: Apt repository for Neutrine
+SignWith: 7E9358BD30862E2C024B1303AF844DC0005E5D76
+
+Origin: deb.neutrine.com
+Label: deb.neutrine.com
+Codename: stretch
+Architectures: amd64 source arm64 armhf
+Components: main
+Description: Apt repository for Neutrine
+SignWith: 7E9358BD30862E2C024B1303AF844DC0005E5D76
+
+Origin: deb.neutrine.com
+Label: deb.neutrine.com
+Codename: jessie
+Architectures: amd64 source arm64 armhf
+Components: main
+Description: Apt repository for Neutrine
+SignWith: 7E9358BD30862E2C024B1303AF844DC0005E5D76
