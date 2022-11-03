@@ -32,12 +32,13 @@ jobs:
             reprepro -V export
 
             mv dists _site
+            # mv pool _site
 
             python3 scripts/create-static-directory-listing.py _site --indexPage README.md
 
-            - name: Upload artifact
-            # Automatically uploads an artifact from the './_site' directory by default
-            uses: actions/upload-pages-artifact@v1
+        - name: Upload artifact
+          # Automatically uploads an artifact from the './_site' directory by default
+          uses: actions/upload-pages-artifact@v1
   deploy:
     environment:
       name: github-pages
