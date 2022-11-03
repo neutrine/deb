@@ -41,6 +41,11 @@ jobs:
             # mv pool _site
 
             python3 scripts/create-static-directory-listing.py _site --indexPage README.md
+        - name: Build Jekyll for GitHub Pages
+          uses: actions/jekyll-build-pages@v1.0.6
+          with:
+            # Directory where the source files reside.
+            source: ./_site
 
         - name: Upload artifact
           # Automatically uploads an artifact from the './_site' directory by default
