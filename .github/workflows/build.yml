@@ -46,9 +46,9 @@ jobs:
           # Automatically uploads an artifact from the './_site' directory by default
           uses: actions/upload-pages-artifact@v1
   deploy:
-#     environment:
-#       name: github-pages
-#       url: ${{ steps.deployment.outputs.page_url }}
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
     steps:
