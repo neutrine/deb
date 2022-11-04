@@ -1,5 +1,5 @@
 Name: default
 IncomingDir: incoming
 TempDir: tmp
-Allow: sid bulleseye buster stretch jessie
+Allow: sid bullseye buster stretch jessie
 Cleanup:

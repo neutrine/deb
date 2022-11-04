@@ -8,7 +8,7 @@ SignWith: FE291B85D56A23961D7580303F9F64612C7BFE27
 
 Origin: deb.neutrine.com
 Label: deb.neutrine.com
-Codename: bulleseye
+Codename: bullseye
 Architectures: amd64 source arm64 armhf
 Components: main
 Description: Apt repository for Neutrine

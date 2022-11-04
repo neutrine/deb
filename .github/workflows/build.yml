@@ -44,7 +44,7 @@ jobs:
             # mkdir incoming
             # reprepro -V processincoming default
             reprepro -V -S utils  -C main  includedeb sid packages/ram-journal-0.1.2-x86_64-unknown-linux-gnu.deb
-            reprepro -V -S utils  -C main  includedeb bulleseye packages/ram-journal-0.1.2-x86_64-unknown-linux-gnu.deb
+            reprepro -V -S utils  -C main  includedeb bullseye packages/ram-journal-0.1.2-x86_64-unknown-linux-gnu.deb
             reprepro -V -S utils  -C main  includedeb buster packages/ram-journal-0.1.2-x86_64-unknown-linux-gnu.deb
             reprepro -V -S utils  -C main  includedeb stretch packages/ram-journal-0.1.2-x86_64-unknown-linux-gnu.deb
             reprepro -V -S utils  -C main  includedeb jessie packages/ram-journal-0.1.2-x86_64-unknown-linux-gnu.deb
