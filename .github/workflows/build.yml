@@ -40,12 +40,19 @@ jobs:
             gpg2 --import _site/public.gpg
             echo -e "${{ secrets.GPG_SIGNING_KEY }}" | gpg --import --no-tty --batch --yes
 
-            mkdir incoming
-            reprepro -V processincoming default
-            reprepro -V export
+
+            # mkdir incoming
+            # reprepro -V processincoming default
+            reprepro -V -S utils  -C main  includedeb sid packages/ram-journal-0.1.2-x86_64-unknown-linux-gnu.deb
+            reprepro -V -S utils  -C main  includedeb bulleseye packages/ram-journal-0.1.2-x86_64-unknown-linux-gnu.deb
+            reprepro -V -S utils  -C main  includedeb buster packages/ram-journal-0.1.2-x86_64-unknown-linux-gnu.deb
+            reprepro -V -S utils  -C main  includedeb stretch packages/ram-journal-0.1.2-x86_64-unknown-linux-gnu.deb
+            reprepro -V -S utils  -C main  includedeb jessie packages/ram-journal-0.1.2-x86_64-unknown-linux-gnu.deb
+
+            # reprepro -V export
 
             mv dists _site
-            # mv pool _site
+            mv pool _site
 
             python3 scripts/create-static-directory-listing.py _site --indexPage README.md
         - name: Build Jekyll for GitHub Pages
