@@ -49,12 +49,23 @@ jobs:
             reprepro -V -S utils  -C main  includedeb stretch packages/ram-journal-0.1.2-x86_64-unknown-linux-gnu.deb
             reprepro -V -S utils  -C main  includedeb jessie packages/ram-journal-0.1.2-x86_64-unknown-linux-gnu.deb
 
-            # reprepro -V export
+            reprepro -V -S utils  -C main  includedeb sid packages/ram-journal-0.1.2-aarch64-unknown-linux-gnu.deb
+            reprepro -V -S utils  -C main  includedeb bullseye packages/ram-journal-0.1.2-aarch64-unknown-linux-gnu.deb
+            reprepro -V -S utils  -C main  includedeb buster packages/ram-journal-0.1.2-aarch64-unknown-linux-gnu.deb
+            reprepro -V -S utils  -C main  includedeb stretch packages/ram-journal-0.1.2-aarch64-unknown-linux-gnu.deb
+            reprepro -V -S utils  -C main  includedeb jessie packages/ram-journal-0.1.2-aarch64-unknown-linux-gnu.deb
+
+            reprepro -V -S utils  -C main  includedeb sid packages/ram-journal-0.1.2-armv7-unknown-linux-gnueabihf.deb
+            reprepro -V -S utils  -C main  includedeb bullseye packages/ram-journal-0.1.2-armv7-unknown-linux-gnueabihf.deb
+            reprepro -V -S utils  -C main  includedeb buster packages/ram-journal-0.1.2-armv7-unknown-linux-gnueabihf.deb
+            reprepro -V -S utils  -C main  includedeb stretch packages/ram-journal-0.1.2-armv7-unknown-linux-gnueabihf.deb
+            reprepro -V -S utils  -C main  includedeb jessie packages/ram-journal-0.1.2-armv7-unknown-linux-gnueabihf.deb
 
             mv dists _site
             mv pool _site
 
             python3 scripts/create-static-directory-listing.py _site --indexPage README.md
+            
         - name: Build Jekyll for GitHub Pages
           uses: actions/jekyll-build-pages@v1.0.6
           with:
