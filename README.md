@@ -2,24 +2,14 @@
 
 ## Setup
 
-1. Trust key
+1. Add package signing key and repository:
 ```bash
-sudo wget -q "https://neutrine.com/deb/public.gpg" -O /etc/apt/trusted.gpg.d/neutrine.com.gpg
-```
-
-2. Add APT repository
-
-### bullseye
-```bash
+curl -fsSL https://neutrine.com/deb/public.gpg | sudo tee /etc/apt/trusted.gpg.d/neutrine.com.gpg >/dev/null
 sudo sh -c 'echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/trusted.gpg.d/neutrine.com.gpg] https://deb.neutrine.com bullseye main" > /etc/apt/sources.list.d/neutrine.com.list'
 ```
 
-### buster
+2. Install package:
 ```bash
-sudo sh -c 'echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/trusted.gpg.d/neutrine.com.gpg] https://deb.neutrine.com bullseye main" > /etc/apt/sources.list.d/neutrine.com.list'
-```
-
-3. APT update
-```bash
-sudo apt update
+sudo apt-get update
+sudo apt-get install <package-name>
 ```
